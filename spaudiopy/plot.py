@@ -19,7 +19,7 @@ from matplotlib import cm, colors, tri
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 from scipy.spatial import ConvexHull
 
-from . import utils, sph, decoder, process, grids
+import utils, sph, decoder, process, grids
 
 
 def spectrum(x, fs, ylim=None, scale_mag=False, **kwargs):
@@ -121,16 +121,17 @@ def freq_resp(freq, amp, TODB=True, smoothing_n=None, xlim=(20, 24000),
         plt.title(title)
 
 
-def transfer_function(freq, H, title=None, xlim=(10, 25000)):
+def transfer_function(freq, H, title=None, xlim=(10, 25000), ylim=(-40, 40)):
     """Plot transfer function H (magnitude and phase) over time frequency f."""
     fig, ax1 = plt.subplots()
-    H = np.clip(H, 10e-15, None)
+    # H = np.clip(H, 10e-15, None)       # causes wrong results!
     ax1.semilogx(freq, utils.db(H),
                  color=plt.rcParams['axes.prop_cycle'].by_key()['color'][0],
                  label='Amplitude')
     ax1.set_xlabel('Frequency in Hz')
     ax1.set_ylabel('Amplitude in dB')
     ax1.set_xlim(xlim)
+    ax1.set_ylim(ylim)
     ax1.grid(True)
 
     ax2 = ax1.twinx()
