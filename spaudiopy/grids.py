@@ -16,7 +16,7 @@ import os
 import numpy as np
 from warnings import warn
 from scipy.io import loadmat
-from . import sph
+import sph
 
 
 def calculate_grid_weights(azi, zen, order=None):
