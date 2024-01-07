@@ -28,7 +28,7 @@ import numpy as np
 import scipy.spatial as scyspat
 from scipy import signal
 
-from . import io, plot, utils, sph, sig, grids
+import io, utils, sph, sig, grids, plot
 
 shared_array = None
 
