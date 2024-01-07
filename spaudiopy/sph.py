@@ -21,7 +21,7 @@
 import numpy as np
 from scipy import special as scyspecial
 
-from . import utils, grids
+import utils, grids
 
 
 def sh_matrix(N_sph, azi, colat, sh_type='real'):
