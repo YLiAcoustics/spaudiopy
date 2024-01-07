@@ -24,7 +24,7 @@ from joblib import Memory
 import multiprocessing
 import logging
 
-from . import utils, sph, sig, grids
+import utils, sph, sig, grids
 
 
 # Prepare Caching
