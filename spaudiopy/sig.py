@@ -26,8 +26,8 @@ except (ImportError, OSError) as e:
     print(str(e))
     warn("Sounddevice not available.")
 
-from . import io, utils, sph
-from . import process as pcs
+import io, utils, sph
+import process as pcs
 
 
 # CLASSES
